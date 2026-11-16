@@ -6,31 +6,31 @@
 
 ## 硬件配置
 
-| 部件 | 型号 |
-|---|---|
-| 机型 | Huawei MateBook D14 2020 |
-| CPU | Intel Core i5-10210U（Comet Lake，4C8T） |
-| 核显 | Intel UHD Graphics 620（驱动内屏与副屏） |
-| 独显 | NVIDIA GeForce MX250（Pascal GP108，**固件层断电，未启用**） |
-| 内存 | 8 GB |
-| 无线 | Intel AX201（CNVi，WiFi 6 + 蓝牙） |
-| 声卡 | Realtek ALC256 |
-| 屏幕 | 内屏 2160×1440 3:2，HDMI 副屏 |
+| 部件  | 型号                                               |
+| --- | ------------------------------------------------ |
+| 机型  | Huawei MateBook D14 2020                         |
+| CPU | Intel Core i5-10210U（Comet Lake，4C8T）            |
+| 核显  | Intel UHD Graphics 620（驱动内屏与副屏）                  |
+| 独显  | NVIDIA GeForce MX250（Pascal GP108，**固件层断电，未启用**） |
+| 内存  | 16 GB                                            |
+| 无线  | Intel AX201（CNVi，WiFi 6 + 蓝牙）                    |
+| 声卡  | Realtek ALC256                                   |
+| 屏幕  | 内屏 2160×1440 3:2，HDMI 副屏                         |
 
 ## 已验证可用
 
-| 功能 | 方案 |
-|---|---|
-| 系统安装与启动 | OpenCore，macOS 26 Tahoe |
-| WiFi 原生菜单 + WiFi 6 (802.11ax) | `AirportItlwm-Tahoe.kext` + `itlwm_he=1` |
-| 蓝牙 | `IntelBluetoothFirmware` + `BlueToolFixup` + `IntelBTPatcher` |
-| 声卡（外放 / 耳机 / 内置麦克风） | `AppleALC` + `SimpleHDA`，`layout-id=21` |
-| 亮度调节 | `SSDT-PNLFCFL.aml` |
-| 电池 / CPU 温度 / 风扇读数 | VirtualSMC 系列（`SMCBatteryManager`、`SMCProcessor`、`SMCHuaweiFan`、`SMCLightSensor`） |
-| 触控板 / 键盘 | `VoodooI2C` + `VoodooPS2Controller` |
-| HDMI 副屏 | 核显输出，开机首次绿屏可能需重新插拔或合盖再开 |
-| USB | `USBInjectAll`（未做端口定制） |
-| NVMe / 休眠 / 电源管理 | `NVMeFix`、`HibernationFixup`、原生 Comet Lake 电源管理 |
+| 功能                            | 方案                                                                                |
+| ----------------------------- | --------------------------------------------------------------------------------- |
+| 系统安装与启动                       | OpenCore，macOS 26 Tahoe                                                           |
+| WiFi 原生菜单 + WiFi 6 (802.11ax) | `AirportItlwm-Tahoe.kext` + `itlwm_he=1`                                          |
+| 蓝牙                            | `IntelBluetoothFirmware` + `BlueToolFixup` + `IntelBTPatcher`                     |
+| 声卡（外放 / 耳机 / 内置麦克风）           | `AppleALC` + `SimpleHDA`，`layout-id=21`                                           |
+| 亮度调节                          | `SSDT-PNLFCFL.aml`                                                                |
+| 电池 / CPU 温度 / 风扇读数            | VirtualSMC 系列（`SMCBatteryManager`、`SMCProcessor`、`SMCHuaweiFan`、`SMCLightSensor`） |
+| 触控板 / 键盘                      | `VoodooI2C` + `VoodooPS2Controller`                                               |
+| HDMI 副屏                       | 核显输出，开机首次绿屏可能需重新插拔或合盖再开                                                           |
+| USB                           | `USBInjectAll`（未做端口定制）                                                            |
+| NVMe / 休眠 / 电源管理              | `NVMeFix`、`HibernationFixup`、原生 Comet Lake 电源管理                                   |
 
 ## 已知限制（不要重复踩坑）
 
