@@ -26,7 +26,7 @@
 | 蓝牙 | `IntelBluetoothFirmware` + `BlueToolFixup` + `IntelBTPatcher` |
 | 声卡（外放 / 耳机 / 内置麦克风） | `AppleALC` + `SimpleHDA`，`layout-id=21` |
 | 亮度调节 | `SSDT-PNLFCFL.aml` |
-| 电池 / CPU 温度 / 风扇读数 | VirtualSMC 系列（`SMCBatteryManager`、`SMCProcessor`、`SMCDellSensors`、`SMCHuaweiFan`） |
+| 电池 / CPU 温度 / 风扇读数 | VirtualSMC 系列（`SMCBatteryManager`、`SMCProcessor`、`SMCHuaweiFan`、`SMCLightSensor`） |
 | 触控板 / 键盘 | `VoodooI2C` + `VoodooPS2Controller` |
 | HDMI 副屏 | 核显输出，开机首次绿屏可能需重新插拔或合盖再开 |
 | USB | `USBInjectAll`（未做端口定制） |
@@ -40,6 +40,7 @@
 - **指纹**：硬件与 TLS-PSK 协议层可通，但认证匹配分数长期低于阈值，已放弃并完整卸载用户态组件。
 - **CPUFriend / 风扇调速 / 独显直连**：均不可行或无收益。
 - **系统卷**：全程 sealed，**未做 OCLP root patch**。任何需要写系统卷的方案都不在本 EFI 范围内。
+- **发布包范围**：仅保留 macOS 26 Tahoe 当前必需项；旧系统 WiFi 回退 kext、禁用指纹/SMC 文件、未使用主题与未引用工具未收录。
 
 ## 目录结构
 
@@ -75,7 +76,7 @@ OC/
 - [AppleALC](https://github.com/acidanthera/AppleALC) + [SimpleHDA](https://github.com/laobamac/SimpleHDA) — 声卡
 - [VirtualSMC](https://github.com/acidanthera/VirtualSMC) 及 SMC 传感器子 kext
 - [NVMeFix](https://github.com/acidanthera/NVMeFix)、[RestrictEvents](https://github.com/acidanthera/RestrictEvents)、[HibernationFixup](https://github.com/acidanthera/HibernationFixup)
-- [AirportItlwm / itlwm](https://github.com/OpenIntelWireless/itlwm) 及 [laobamac 的 Tahoe fork](https://github.com/laobamac/itlwm) — Intel WiFi
+- [AirportItlwm-Tahoe](https://github.com/laobamac/itlwm)（基于 [OpenIntelWireless/itlwm](https://github.com/OpenIntelWireless/itlwm)）— Intel WiFi
 - [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) + [BlueToolFixup](https://github.com/acidanthera/BlueToolFixup) + [IntelBTPatcher](https://github.com/Sherryha6/IntelBTPatcher) — 蓝牙
 - [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) + [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2Controller) — 触控板与键盘
 - [USBInjectAll](https://github.com/externalist/OS-X-USB-Inject-All) — USB
